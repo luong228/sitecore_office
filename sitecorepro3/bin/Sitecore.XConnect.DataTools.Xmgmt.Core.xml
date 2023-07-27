@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sitecore.XConnect.DataTools.Xmgmt.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Sitecore.XConnect.DataTools.Xmgmt.Core.ExceptionResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Sitecore.XConnect.DataTools.Xmgmt.Core.ExceptionResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Sitecore.XConnect.DataTools.Xmgmt.Core.ExceptionResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Sitecore.XConnect.DataTools.Xmgmt.Core.ExceptionResources.AliasShouldNotBeNullOrWhiteSpace">
+            <summary>
+              Looks up a localized string similar to Alias should not be null, empty or white space..
+            </summary>
+        </member>
+        <member name="P:Sitecore.XConnect.DataTools.Xmgmt.Core.ExceptionResources.DateTimeValueMustBeUtc">
+            <summary>
+              Looks up a localized string similar to DateTime value must be UTC..
+            </summary>
+        </member>
+        <member name="T:Sitecore.XConnect.DataTools.Xmgmt.Core.Filters.ValidateModelAttribute">
+            <summary>
+            Attribute that is used to validate model that is passed to an controller action.
+            </summary>
+        </member>
+        <member name="M:Sitecore.XConnect.DataTools.Xmgmt.Core.Filters.ValidateModelAttribute.OnActionExecuting(System.Web.Http.Controllers.HttpActionContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.XConnect.DataTools.Xmgmt.Core.Models.ISamplingModel">
+            <summary>
+            Defines model for sampling options.
+            </summary>
+        </member>
+        <member name="P:Sitecore.XConnect.DataTools.Xmgmt.Core.Models.ISamplingModel.StartPercentile">
+            <summary>
+            Gets the start percentile.
+            </summary>
+        </member>
+        <member name="P:Sitecore.XConnect.DataTools.Xmgmt.Core.Models.ISamplingModel.EndPercentile">
+            <summary>
+            Gets the end percentile.
+            </summary>
+        </member>
+        <member name="T:Sitecore.XConnect.DataTools.Xmgmt.Core.Models.SamplingModelExtensions">
+            <summary>
+            Extensions for <see cref="T:Sitecore.XConnect.DataTools.Xmgmt.Core.Models.ISamplingModel"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.XConnect.DataTools.Xmgmt.Core.Models.SamplingModelExtensions.BuildSamplingOptions(Sitecore.XConnect.DataTools.Xmgmt.Core.Models.ISamplingModel)">
+            <summary>
+            Converts <see cref="T:Sitecore.XConnect.DataTools.Xmgmt.Core.Models.ISamplingModel"/> to <see cref="T:Sitecore.XConnect.SamplingOptions"/>.
+            </summary>
+            <param name="samplingModel">The model to convert.</param>
+            <returns><see cref="T:Sitecore.XConnect.SamplingOptions"/></returns>
+        </member>
+        <member name="M:Sitecore.XConnect.DataTools.Xmgmt.Core.Models.SamplingModelExtensions.Validate(Sitecore.XConnect.DataTools.Xmgmt.Core.Models.ISamplingModel)">
+            <summary>
+            Determines whether the specified sampling model is valid.
+            </summary>
+            <param name="samplingModel">The sampling model to validate.</param>
+            <returns>
+            A collection that holds failed-validation information.
+            </returns>
+        </member>
+        <member name="T:Sitecore.XConnect.DataTools.Xmgmt.Core.Models.ValidationResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Sitecore.XConnect.DataTools.Xmgmt.Core.Models.ValidationResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Sitecore.XConnect.DataTools.Xmgmt.Core.Models.ValidationResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Sitecore.XConnect.DataTools.Xmgmt.Core.Models.ValidationResources.ValueShouldBeLessThanFormatMessage">
+            <summary>
+              Looks up a localized string similar to {0} should be less than {1}..
+            </summary>
+        </member>
+        <member name="P:Sitecore.XConnect.DataTools.Xmgmt.Core.Models.ValidationResources.ValueShouldBeSpecifiedFormatMessage">
+            <summary>
+              Looks up a localized string similar to {0} should be specified..
+            </summary>
+        </member>
+        <member name="T:Sitecore.XConnect.DataTools.Xmgmt.Core.SitecoreRoles">
+            <summary>
+            Represents names of Sitecore roles.
+            </summary>
+        </member>
+        <member name="F:Sitecore.XConnect.DataTools.Xmgmt.Core.SitecoreRoles.XConnectDataAdmin">
+            <summary>
+            The name of XConnect Data Administrator role.
+            </summary>
+        </member>
+    </members>
+</doc>

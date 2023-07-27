@@ -1,0 +1,61 @@
+﻿@using System.Web.Mvc
+@using System.Web.Mvc.Html
+@using Sitecore.Workflows.Simple
+@model sitecorepro3.Feature.MainContent.Models.Newsletter
+
+@{
+    var isInvalidEmail = TempData.ContainsKey("InvalidEmail") ;
+    var isDuplicateEmail = TempData.ContainsKey("DuplicateEmail");
+    var isSuccess = TempData.ContainsKey("Success");
+}
+<div id="mainContent">
+    <h2 class="PageHeading DarkScheme">Newsletter</h2>
+
+@using (Html.BeginForm("Newsletter", "MainContent", FormMethod.Post))
+{
+    <fieldset>
+        <legend>Retrieve password form</legend>
+
+        <div class="HrReplacement HrStyle02 HrSpacing01"><hr class="Hidden"/></div>
+
+        <div class="FormItem FormItemSpacing01 LightScheme">
+            <label class="TextLabel" for="email">Email adress <span class="RequiredIndicator">*</span></label>
+           
+            @{
+                var inputWrapperClass = isInvalidEmail || isDuplicateEmail ? "TextInputWrapper01Error" : "TextInputWrapper01";
+            }
+            <div class="@inputWrapperClass TextInputSize01">
+                <div class="TextInputWrapper02">
+                    @*<input type="text" name="" id="email" class="TextInput LightScheme" />*@
+                    @Html.TextBoxFor(m => m.Email, new { value = "Email", @id="email", @class = "TextInput LightScheme" })
+                </div>
+            </div>
+        </div>
+        @{
+            var invalidElement = isInvalidEmail ? $"<div class=\"Clr\"></div>  <p class=\"NewsLetterError\"> Invalid Email</p>" + $"<p class=\"NewsLetterError\"> Invalid Email</p>" : "";
+            var duplicateElement = isDuplicateEmail ? $"<div class=\"Clr\"></div>  <p class=\"NewsLetterError\"> Duplicate Email</p>" + $"<p class=\"NewsLetterError\"> Duplicate Email</p>" : "";
+            var successElement = isSuccess ? $"<div class=\"Clr\"></div>  <p class=\"NewsLetterError\"> Newsletter registered successfully</p>" + $"<p class=\"NewsLetterError\"> Newsletter registered successfully</p>" : "";
+        }
+
+        @Html.Raw(successElement)
+        @Html.Raw(duplicateElement)
+        @Html.Raw(invalidElement)
+        <div class="HrReplacement HrStyle01"><hr class="Hidden"/></div>
+
+        <div class="ButtonGroup ButtonGroupSpacing01 PaddingButton">
+            <div class="FormButtonWrapper01">
+                <div class="FormButtonWrapper02">
+                    <input class="CommonFormBtn" type="submit" title="Submit" value="Submit"/>
+                </div>
+            </div>
+            <div class="FormButtonWrapper01">
+                <div class="FormButtonWrapper02">
+                    <input class="CommonFormBtn" type="reset" title="Cancel" value="Cancel"/>
+                </div>
+            </div>
+        </div>
+
+        <p class="FormNote FormNoteSpacing01 LightScheme PaddingErr"><span class="RequiredIndicator ">*</span> Requested field</p>
+    </fieldset>
+}
+</div>

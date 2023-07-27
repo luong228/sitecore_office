@@ -1,0 +1,24 @@
+﻿@model sitecorepro3.Feature.MainContent.Models.RegisterUser
+@using System.Web.Mvc
+@using System.Web.Mvc.Html
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+
+<div style="margin-bottom: 200px;">
+    @using (Html.BeginForm("Register", "MainContent", FormMethod.Post))
+    {
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name)
+        <br />
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email)
+        <br />
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password)
+        <br />
+        <input type="submit" value="Submit" />
+    }
+</div>

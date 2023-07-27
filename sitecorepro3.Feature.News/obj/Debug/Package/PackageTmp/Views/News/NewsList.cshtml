@@ -1,0 +1,69 @@
+﻿@using Sitecore.Data.Items
+@using Sitecore.Mvc
+@using sitecorepro3.Foundation.SitecoreExtensions.Extensions
+
+@model sitecorepro3.Feature.News.Models.NewsListVM
+
+<div id="mainContent">
+    <!-----Change----------->
+    <h2 class="PageHeading DarkScheme TitleLeft">News</h2>
+    <!-----Change----------->
+    <div class="FormButtonWrapper01 SubmitButton">
+        <div class="FormButtonWrapper02 SubmitNews">
+            <a href="" class="CommonFormBtn SubmitNews">SUBMIT TO NEWSLETTER</a>
+        </div>
+    </div>
+    <div class="Clr">
+    </div>
+    <div class="HrReplacement HrStyle01 H29">
+        <hr class="Hidden" />
+    </div>
+    <!--News list-->
+    @foreach (var item in Model.NewsList)
+    {
+        <div class="NewsList ">
+            <a href="" class="ImgNews">
+                @*<img src="images/article-img-01.jpg" alt="Image News"/>*@
+                @Html.Sitecore().ImageField(sitecorepro3.Feature.News.Templates.NewsArticle.Fields.Image, item.Item, mw: 150)
+            </a>
+            <div class="NewsText ">
+                <p class="LightScheme FontNews">
+                    @Html.Sitecore().Field(sitecorepro3.Feature.News.Templates.NewsArticle.Fields.Date.ToString(), item.Item, new
+                    {
+                        format = "MMMM dd, yyyy"
+                    })
+                </p>
+                <h3 class="H5 FontNews">
+                    <a href="@item.GetUrl">
+                        @Html.Sitecore().Field(sitecorepro3.Feature.News.Templates.NewsArticle.Fields.Title, item)
+                    </a>
+                </h3>
+                <p class="ShareNews"> <a href="">share</a> </p>
+                <p class="LightScheme FontNews">
+                    @Html.Sitecore().Field(sitecorepro3.Feature.News.Templates.NewsArticle.Fields.Summary, item)
+                    <a href="@item.GetUrl">>> </a>
+                </p>
+            </div>
+        </div>
+        <div class="Clr">
+        </div>
+    }
+</div>
+<div class="HrReplacement HrStyle01"><hr class="Hidden" /></div>
+<!--Paging-->
+<div class="BlockPageNavigation1 BlockPageNavigationMirror BlockPageNavigationMirrorSpacing01 PaddingNews">
+    <a href="#" title="Prev" class="BackBtn BackBtnSmall"><span>Prev</span></a>
+
+    <div class="CenteringBlock">
+        <ul class="PagingIndex">
+            <li><a href="?page=1" title="">1</a></li>
+            <li><a href="?page=2" title="">2</a></li>
+            <li><a href="?page=3" title="">3</a></li>
+            <li><a href="?page=4" title="">4</a></li>
+            <li><a href="?page=5" title="">5</a></li>
+            <li><a href="?page=6" title="">...</a></li>
+        </ul>
+    </div>
+
+    <a href="#" title="Next" class="NextBtn NextBtnSmall"><span>Next</span></a>
+</div>

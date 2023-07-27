@@ -1,0 +1,12 @@
+﻿@using Sitecore
+@using Sitecore.Mvc
+@using sitecorepro3.Foundation.SitecoreExtensions.Extensions
+@using sitecorepro3.Project.Common.Website
+@model Sitecore.Mvc.Presentation.RenderingModel
+<div class="@Model.Rendering.GetContainerClass()">
+  <div class="row">
+    <div class="col-md-12">
+      @Html.Sitecore().DynamicPlaceholder("col-huge", Model.Rendering.GetUseStaticPlaceholderNames())
+    </div>
+  </div>
+</div>

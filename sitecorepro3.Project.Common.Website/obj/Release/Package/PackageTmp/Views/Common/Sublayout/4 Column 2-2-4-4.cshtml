@@ -1,0 +1,22 @@
+﻿@using Sitecore
+@using Sitecore.Mvc
+@using sitecorepro3.Foundation.SitecoreExtensions.Extensions
+@using sitecorepro3.Project.Common.Website
+
+@model Sitecore.Mvc.Presentation.RenderingModel
+<div class="@Model.Rendering.GetContainerClass()">
+  <div class="row">
+    <div class="col-md-2 col-sm-6">
+      @Html.Sitecore().DynamicPlaceholder("col-narrow-1", Model.Rendering.GetUseStaticPlaceholderNames())
+    </div>
+    <div class="col-md-2 col-sm-6">
+      @Html.Sitecore().DynamicPlaceholder("col-narrow-2", Model.Rendering.GetUseStaticPlaceholderNames())
+    </div>
+    <div class="col-md-4 col-sm-6">
+      @Html.Sitecore().DynamicPlaceholder("col-narrow-3", Model.Rendering.GetUseStaticPlaceholderNames())
+    </div>
+    <div class="col-md-4 col-sm-6">
+      @Html.Sitecore().DynamicPlaceholder("col-narrow-4", Model.Rendering.GetUseStaticPlaceholderNames())
+    </div>
+  </div>
+</div>

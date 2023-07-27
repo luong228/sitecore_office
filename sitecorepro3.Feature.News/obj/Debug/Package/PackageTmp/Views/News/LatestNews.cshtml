@@ -1,0 +1,38 @@
+﻿@using sitecorepro3.Feature.News
+@using sitecorepro3.Foundation.SitecoreExtensions.Extensions
+@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using sitecorepro3.Foundation.SitecoreExtensions.Extensions
+@model sitecorepro3.Feature.News.Models.NewsListVM
+
+@{var uri = new Uri(Request.Url.AbsoluteUri);
+    string url = uri.Scheme + "://" + uri.Authority;
+
+}
+<div class="ContentHomeMain">
+    <div class="ContentImg">
+        <a href="#"> <img src="@url/images/news.png" alt="Building Bell Logo" title="Building Bell Logo" /></a>
+    </div>
+    <div class="ContentText">
+        <h2 class="TitleH2 DarkScheme"> News </h2>
+        @foreach (var item in Model.NewsList)
+        {
+            <div class="Sumary LightScheme">
+                <p class="FontSumary">
+                    @Html.Sitecore().Field(sitecorepro3.Feature.News.Templates.NewsArticle.Fields.Date.ToString(), item.Item, new
+                    {
+                        format = "MMMM dd, yyyy"
+                    })
+                </p>
+                <h3 class="FontH3Home"><a href="@item.Url">@Html.Sitecore().Field(Templates.NewsArticle.Fields.Title, item)</a></h3>
+                <p class="NextButton FontSumary ">
+                    @item.Summary
+                    <a href="@item.GetUrl">>> </a>
+                </p>
+            </div>
+        }
+
+
+    </div>
+    <div class="Clr"></div>
+</div>

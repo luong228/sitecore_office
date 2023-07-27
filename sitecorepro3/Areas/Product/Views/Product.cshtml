@@ -1,0 +1,20 @@
+﻿@using Sitecore.Data.Fields
+@using Sitecore.Data.Items
+@model RenderingModel
+@{
+    ViewBag.Title = "Product";
+}
+
+<div class="container">
+    <div class="row productList"></div>
+    @foreach (var item in Model.Items)
+    {
+        <div class="product">
+            <h3>@Html.Sitecore().Field("Name", item)</h3>
+            <p>@Html.Sitecore().Field("Description", item)</p>
+            <p>Price: @Html.Sitecore().Field("Price", item)</p>
+            <p>Quantity: @Html.Sitecore().Field("Quantity", item)</p>
+            <br/>
+        </div>
+    }
+</div>

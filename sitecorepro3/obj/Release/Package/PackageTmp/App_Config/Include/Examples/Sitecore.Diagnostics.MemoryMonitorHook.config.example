@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+
+Purpose: This include file enables MemoryMonitorHook hook.
+
+Please consult your Sitecore partner before enabling this include file. Enabling this file without taking into account the specifics of your
+solution can have unexpected consequences.
+
+Important: Include files are applied in alphabetical order. Therefore this include file cannot remove indexes that are defined by include
+files that are applied later. In that situation, you must rename this include file so that it is applied after any other include files that
+contain index definitions.
+
+To enable this include file, rename it to have a ".config" extension.
+
+-->
+<configuration xmlns:patch="http://www.sitecore.net/xmlconfig/">
+  <sitecore>
+    <hooks>
+      <!-- Enables memory monitoring. -->
+      <hook type="Sitecore.Diagnostics.MemoryMonitorHook, Sitecore.Kernel">
+        <param desc="Threshold">2GB</param>
+        <param desc="Check interval">00:00:05</param>
+        <param desc="Minimum time between log entries">00:01:00</param>
+        <ClearCaches>false</ClearCaches>
+        <GarbageCollect>false</GarbageCollect>
+        <AdjustLoadFactor>false</AdjustLoadFactor>
+      </hook>
+    </hooks>
+  </sitecore>
+</configuration>

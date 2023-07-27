@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<configuration xmlns:patch="http://www.sitecore.net/xmlconfig/" xmlns:role="http://www.sitecore.net/xmlconfig/role/">
+  <sitecore role:require="Standalone or ContentManagement or ContentDelivery">
+    <pipelines>
+      <initialize>
+        <processor type="Sitecore.Pipelines.Loader.ShowVersion, Sitecore.Kernel">
+          <patch:attribute name="runMode">AsyncToEnd</patch:attribute>
+        </processor>
+        <processor type="Sitecore.Pipelines.Loader.SetGlobals, Sitecore.Kernel">
+          <patch:attribute name="runMode">Async</patch:attribute>
+        </processor>
+        <processor type="Sitecore.Pipelines.Loader.LoadHooks, Sitecore.Kernel">
+          <patch:attribute name="runMode">Async</patch:attribute>
+        </processor>
+        <processor type="Sitecore.Pipelines.Loader.InitializeManagers, Sitecore.Kernel">
+          <patch:attribute name="runMode">Sync</patch:attribute>
+        </processor>
+        <processor type="Sitecore.ContentSearch.SolrProvider.Pipelines.Loader.InitializeSolrProvider, Sitecore.ContentSearch.SolrProvider">
+          <patch:attribute name="runMode">Async</patch:attribute>
+        </processor>
+        <processor type="Sitecore.Pipelines.Loader.InitializeScheduler, Sitecore.Kernel">
+          <patch:attribute name="runMode">Async</patch:attribute>
+        </processor>
+        <processor type="Sitecore.Pipelines.Loader.InitializeHeartbeat, Sitecore.Kernel">
+          <patch:attribute name="runMode">Async</patch:attribute>
+        </processor>
+        <processor type="Sitecore.Pipelines.Loader.InitializeAgilityPack, Sitecore.Kernel">
+          <patch:attribute name="runMode">Async</patch:attribute>
+        </processor>
+        <processor type="Sitecore.Pipelines.Loader.EnsureAnonymousUsers, Sitecore.Kernel" resolve="true" runMode="Async">
+          <patch:attribute name="runMode">Async</patch:attribute>
+        </processor>
+        <processor type="Sitecore.Pipelines.Loader.RegisterjQuery, Sitecore.Kernel" runMode="Async">
+          <patch:attribute name="runMode">Async</patch:attribute>
+        </processor>
+        <processor type="Sitecore.Eventing.Remote.RemoteEventMap, Sitecore.Kernel" method="InitializeFromPipeline" patch:source="Sitecore.Eventing.config">
+          <patch:attribute name="runMode">Async</patch:attribute>
+        </processor>
+        <processor type="Sitecore.Pipelines.Loader.AcknowledgeInitialized, Sitecore.Kernel">
+          <patch:attribute name="runMode">Async</patch:attribute>
+        </processor>
+        <processor type="Sitecore.Pipelines.Loader.DumpConfigurationFiles, Sitecore.Kernel">
+          <patch:attribute name="runMode">Async</patch:attribute>
+        </processor>
+        <processor type="Sitecore.Pipelines.Loader.InitializeJSNLog, Sitecore.Kernel" patch:source="Sitecore.JSNLog.config">
+          <patch:attribute name="runMode">Async</patch:attribute>
+        </processor>
+        <processor type="Sitecore.CES.GeoIp.Core.Pipelines.DatabaseInitializer.Initializer, Sitecore.CES.GeoIp.Core" resolve="true" patch:source="Sitecore.CES.GeoIp.config">
+          <patch:attribute name="runMode">Async</patch:attribute>
+        </processor>
+        <processor type="Sitecore.Mvc.Pipelines.Loader.InitializeAspNetMvc, Sitecore.Mvc" patch:source="Sitecore.Mvc.config">
+          <patch:attribute name="runMode">Sync</patch:attribute>
+        </processor>
+        <processor type="Sitecore.Mvc.Pipelines.Loader.InitializeGlobalFilters, Sitecore.Mvc" patch:source="Sitecore.Mvc.config">
+          <patch:attribute name="runMode">Async</patch:attribute>
+        </processor>
+        <processor type="Sitecore.Mvc.Pipelines.Loader.InitializeDependencyResolver, Sitecore.Mvc" patch:source="Sitecore.Mvc.config">
+          <patch:attribute name="runMode">Sync</patch:attribute>
+        </processor>
+        <processor type="Sitecore.Mvc.Pipelines.Loader.InitializeControllerFactory, Sitecore.Mvc" patch:source="Sitecore.Mvc.config">
+          <patch:attribute name="runMode">Sync</patch:attribute>
+        </processor>
+        <processor type="Sitecore.Mvc.Pipelines.Initialize.InitializeCommandRoute, Sitecore.Speak.Client" patch:source="Sitecore.Speak.Mvc.config">
+          <patch:attribute name="runMode">Async</patch:attribute>
+        </processor>
+        <processor type="Sitecore.ExperienceForms.Mvc.Pipelines.Initialize.InitializeRoutes, Sitecore.ExperienceForms.Mvc" patch:source="Sitecore.ExperienceForms.Mvc.config">
+          <patch:attribute name="runMode">Async</patch:attribute>
+        </processor>
+        <processor type="Sitecore.Mvc.Pipelines.Loader.InitializeRoutes, Sitecore.Mvc" patch:source="Sitecore.Mvc.config">
+          <patch:attribute name="runMode">Async</patch:attribute>
+        </processor>
+        <processor type="Sitecore.Services.Infrastructure.Sitecore.Pipelines.ServicesWebApiInitializer, Sitecore.Services.Infrastructure.Sitecore" patch:source="Sitecore.Services.Client.config">
+          <patch:attribute name="runMode">Async</patch:attribute>
+        </processor>
+        <processor type="Sitecore.ExperienceForms.Mvc.Pipelines.Initialize.SetModelBinders, Sitecore.ExperienceForms.Mvc" resolve="true" patch:source="Sitecore.ExperienceForms.Mvc.config">
+          <patch:attribute name="runMode">Async</patch:attribute>
+        </processor>
+        <processor type="Sitecore.ExperienceForms.Client.Pipelines.Initialize.InitializeRoutes, Sitecore.ExperienceForms.Client" patch:source="Sitecore.ExperienceForms.Pipelines.Client.config">
+          <patch:attribute name="runMode">Async</patch:attribute>
+        </processor>
+      </initialize>
+    </pipelines>
+  </sitecore>
+</configuration>

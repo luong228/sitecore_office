@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<configuration xmlns:patch="http://www.sitecore.net/xmlconfig/" xmlns:role="http://www.sitecore.net/xmlconfig/role/" xmlns:security="http://www.sitecore.net/xmlconfig/security/">
+  <sitecore>
+    <!-- LINK DATABASE -->
+    <LinkDatabase>
+      <param desc="innerLinkProviders">
+        <patch:delete />
+      </param>
+      <param desc="innerLinkProviders" hint="list:">
+        <linkProvider key="web" type="Sitecore.Data.$(database).$(database)LinkDataProvider, Sitecore.Kernel">
+          <param ref="dataApis/dataApi[@name='$(database)']" param1="$(key)" />
+        </linkProvider>
+        <linkProvider key="master" type="Sitecore.Data.$(database).$(database)LinkDataProvider, Sitecore.Kernel">
+          <param ref="dataApis/dataApi[@name='$(database)']" param1="$(key)" />
+        </linkProvider>
+        <linkProvider key="core" type="Sitecore.Data.$(database).$(database)LinkDataProvider, Sitecore.Kernel">
+          <param ref="dataApis/dataApi[@name='$(database)']" param1="$(key)" />
+        </linkProvider>
+      </param>
+    </LinkDatabase>
+  </sitecore>
+</configuration>

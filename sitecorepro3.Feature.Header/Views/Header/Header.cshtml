@@ -1,0 +1,43 @@
+﻿@{var uri = new Uri(Request.Url.AbsoluteUri);
+    string url = uri.Scheme + "://" + uri.Authority;
+    var fullPath = uri.AbsoluteUri;
+    var currentLanguae = uri.AbsolutePath.Split('/');
+    var activeEng = currentLanguae[1] == "en" ? "Active" :
+    "";
+    var activeCn = currentLanguae[1] == "zh-cn" ? "Active" :
+        "";
+    var language = Sitecore.Context.Language;
+}
+<div id="header">
+    <div>
+        <span class="ShareThisHandle ShareBtnTop"><a href="#" title="Share">Share</a></span>
+    </div>
+    <div class="Logo">
+        <a href="@url/office" title="Building Bell">
+            <img src="@url/images/logo.png" />
+        </a>
+        <h1>
+            Building Bell
+        </h1>
+    </div>
+    <div id="navigationBlock">
+        <ul id="mainNav">
+            <li><a href="@url/@language/office/" title="Home">Home</a></li>
+            <li><a href="@url/@language/office/Residences" title="Residences">Residences</a></li>
+            <li><a href="@url/@language/office/Transactions" title="Transactions">Transactions</a></li>
+            <li><a href="@url/@language/office/News" title="News">News</a></li>
+            <li><a href="@url/@language/office/Contact" title="Contact">Contact</a></li>
+            <li><a href="@url/@language/office/Register" title="Register">Register</a></li>
+            <li><a href="@url/@language/office/Logout" title="Logout">Logout</a></li>
+        </ul>
+        <ul id="languageSelection">
+            <li class="@activeEng"><a  href="@fullPath.Replace("/zh-cn/", "/en/")" title="EN">EN</a></li>
+            <li class="@activeCn"><a  href="@fullPath.Replace("/en/", "/zh-cn/")" title="CN">CN</a></li>
+        </ul>
+    </div>
+    <div class="BlockBanner01">
+        <a href="#" title="Ads banner" target="_blank">
+            <img src="@url/images/ads-banner-01.jpg" alt="Ads banner" title="Ads banner" />
+        </a>
+    </div>
+</div>

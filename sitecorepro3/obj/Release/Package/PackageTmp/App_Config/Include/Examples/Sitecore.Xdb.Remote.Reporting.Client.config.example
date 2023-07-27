@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+This config file has been obsoleted in SC XP 10.1.0 and is not supported anymore. It will be removed in a future release.
+
+-->
+<configuration xmlns:patch="http://www.sitecore.net/xmlconfig/" xmlns:role="http://www.sitecore.net/xmlconfig/role/">
+  <sitecore role:require="ContentManagement">
+    <reporting role:require="!Reporting">
+      <remote enabled="true">
+        <httpTransportFactory type="Sitecore.Analytics.Core.ApiKeyHttpTransportFactory, Sitecore.Analytics.Core" singleInstance="true">
+          <param desc="serviceUrl"></param>
+          <param desc="requireHttps" type="System.Boolean" factoryMethod="Parse" arg0="true" />
+          <param desc="connectionStringName">reporting.apikey</param>
+          <!-- The same header name must be defined in Sitecore.Xdb.Remote.Server.config for reporting.-->
+          <param desc="headerName">X-Reporting-Api-Key</param>
+          <param desc="minimalApiKeyLength">32</param>
+          <param desc="timeout">100000</param>
+        </httpTransportFactory>
+        <proxyDataSource type="Sitecore.Xdb.Reporting.Datasources.Remote.RemoteReportDataSourceProxy, Sitecore.Xdb.Reporting" />
+        <path>/~/v75/reporting/remotedatasourceproxy/</path>
+      </remote>
+    </reporting>
+    <services>
+      <!-- Configures health checks for proxies that implement Sitecore.Analytics.Core.IProxyReadinessCheck interface.
+
+            PARAMETERS:
+            name - the health check name
+            proxyXPath - the xPath to the proxy node
+            tags - the list of tags separated by semicolon (optional)
+      -->
+      <configurator type="Sitecore.Analytics.Aggregation.HealthCheckServicesConfigurator, Sitecore.Analytics.Aggregation">
+        <healthChecks>
+          <add role:require="!Reporting" name="remote report data source http" proxyXPath="//reporting/remote[@enabled='true']/proxyDataSource" tags="xdbOnly" />
+        </healthChecks>
+      </configurator>
+    </services>
+  </sitecore>
+</configuration>

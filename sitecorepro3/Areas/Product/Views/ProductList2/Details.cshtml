@@ -1,0 +1,14 @@
+﻿@model sitecorepro3.Areas.Product.Models.ProductVM
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<h3>@Model.Name</h3>
+<p>@Model.Description</p>
+<p>@Model.Price</p>
+<p>@Model.Quantity</p>
+<img src="@Model.ImageUrl" alt="@Model.Name"/>
+<br/>
+<a href="@Model.Url">@Model.Name</a>

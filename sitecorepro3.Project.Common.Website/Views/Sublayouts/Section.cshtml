@@ -1,0 +1,12 @@
+﻿@using System.Web.UI.WebControls
+@using Sitecore
+@using Sitecore.Data.Items
+@using Sitecore.Mvc
+@using sitecorepro3.Foundation.SitecoreExtensions.Extensions
+@using sitecorepro3.Project.Common.Website
+
+@model Sitecore.Mvc.Presentation.RenderingModel
+
+<section class="section section-full @Model.Rendering.GetBackgroundClass()">
+  @Html.Sitecore().DynamicPlaceholder("section", Model.Rendering.GetUseStaticPlaceholderNames())
+</section>

@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--
+
+Purpose: This file replaces the Profiling pipelines with new implementation 
+that is using the CBP of the contact for the calculation insted of the ProfileScores
+
+-->
+
+<configuration xmlns:patch="http://www.sitecore.net/xmlconfig/" xmlns:role="http://www.sitecore.net/xmlconfig/role/">
+    <sitecore role:require="Standalone or ContentManagement">
+        <pipelines>
+
+            <!-- Defines pipelines for views.
+           Each section contains a pipeline which typically contains steps for
+           constructing result data table, querying data source, getting meta data from Master DB, sorting, paging.
+           Views are always executed for a given contact, i.e. contact id is mandatory parameter. -->
+            <group groupName="ExperienceProfileContactViews">
+                <pipelines>
+                    <profile-pattern-matches>
+                        <patch:delete />
+                    </profile-pattern-matches>
+
+                    <profile-info>
+                        <patch:delete />
+                    </profile-info>
+
+                    <best-pattern-matches>
+                        <patch:delete />
+                    </best-pattern-matches>
+
+                    <profiling-profile-key-values>
+                        <patch:delete />
+                    </profiling-profile-key-values>
+
+                    <profile-pattern-matches>
+                        <processor type="Sitecore.Cintel.Reporting.Contact.ProfilePatternMatch.Processors.ConstructProfilePatternMatchTable, Sitecore.Cintel"/>
+                        <processor type="Sitecore.Cintel.Reporting.ReportingServerDatasource.VisitPatternScores.RetrievePatternScoresForContact, Sitecore.Cintel" resolve="true" />
+                        <processor type="Sitecore.Cintel.Reporting.Processors.ApplySorting, Sitecore.Cintel"/>
+                        <processor type="Sitecore.Cintel.Reporting.Processors.ApplyPaging, Sitecore.Cintel"/>
+                    </profile-pattern-matches>
+
+                    <profiling-profile-key-values>
+                        <processor type="Sitecore.Cintel.Reporting.Contact.ProfileKeyScore.Processors.ConstructProfileKeyScoreTable, Sitecore.Cintel"/>
+                        <processor type="Sitecore.Cintel.Reporting.Contact.ProfileKeyScore.Processors.RetrieveProfileKeyScoresForContact, Sitecore.Cintel"/>
+                        <processor type="Sitecore.Cintel.Reporting.Contact.ProfileKeyScore.Processors.ApplyMasterDataToProfileKeyScores, Sitecore.Cintel"/>
+                        <processor type="Sitecore.Cintel.Reporting.Processors.ApplySorting, Sitecore.Cintel"/>
+                        <processor type="Sitecore.Cintel.Reporting.Processors.ApplyPaging, Sitecore.Cintel"/>
+                    </profiling-profile-key-values>
+
+                    <profile-info>
+                        <processor type="Sitecore.Cintel.Reporting.Contact.ProfileInfo.Processors.ConstructProfileInfoTable, Sitecore.Cintel"/>
+                        <processor type="Sitecore.Cintel.Reporting.ReportingServerDatasource.VisitScoringProfiles.RetrieveContactScoringProfiles, Sitecore.Cintel"/>
+                        <processor type="Sitecore.Cintel.Reporting.Contact.ProfileInfo.Processors.FindBestPatternMatchAndApplyToProfileInfo, Sitecore.Cintel"/>
+                        <processor type="Sitecore.Cintel.Reporting.ReportingServerDatasource.VisitScoringProfiles.SortProfileInfo, Sitecore.Cintel"/>
+                        <processor type="Sitecore.Cintel.Reporting.Contact.ProfileInfo.Processors.ApplyMasterDataToProfileInfo, Sitecore.Cintel"/>
+                        <processor type="Sitecore.Cintel.Reporting.Processors.ApplySorting, Sitecore.Cintel"/>
+                        <processor type="Sitecore.Cintel.Reporting.Processors.ApplyPaging, Sitecore.Cintel"/>
+                    </profile-info>
+
+                    <best-pattern-matches>
+                        <processor type="Sitecore.Cintel.Reporting.Contact.ProfileInfo.Processors.ConstructProfileInfoTable, Sitecore.Cintel"/>
+                        <processor type="Sitecore.Cintel.Reporting.ReportingServerDatasource.VisitScoringProfiles.RetrieveContactScoringProfiles, Sitecore.Cintel"/>
+                        <processor type="Sitecore.Cintel.Reporting.Contact.ProfileInfo.Processors.FindBestPatternMatchAndApplyToProfileInfo, Sitecore.Cintel"/>
+                        <processor type="Sitecore.Cintel.Reporting.ReportingServerDatasource.VisitScoringProfiles.SortProfileInfo, Sitecore.Cintel"/>
+                        <processor type="Sitecore.Cintel.Reporting.Contact.ProfileInfo.Processors.ApplyMasterDataToProfileInfo, Sitecore.Cintel"/>
+                        <processor type="Sitecore.Cintel.Reporting.Processors.ApplySorting, Sitecore.Cintel"/>
+                        <processor type="Sitecore.Cintel.Reporting.Processors.ApplyPaging, Sitecore.Cintel"/>
+                    </best-pattern-matches>
+                </pipelines>
+            </group>
+
+        </pipelines>
+    </sitecore>
+</configuration>

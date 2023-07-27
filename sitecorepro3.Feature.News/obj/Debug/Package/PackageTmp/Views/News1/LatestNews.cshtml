@@ -1,0 +1,30 @@
+﻿@using sitecorepro3.Feature.News
+@using sitecorepro3.Foundation.SitecoreExtensions.Extensions
+@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using sitecorepro3.Foundation.SitecoreExtensions.Extensions
+@model IEnumerable<Sitecore.Data.Items.Item>
+<div >
+    <h5 class="text-uppercase">News</h5>
+    <ul class="media-list">
+        @foreach (var item in Model)
+        {
+            <li class="media">
+                <div class="media-body">
+                    <date>
+                        @Html.Sitecore().Field(Templates.NewsArticle.Fields.Date, item, new
+                        {
+                            format = "MMMM dd, yyyy"
+                        })
+                    </date>
+                    <h4 class="media-heading">
+                        <a href="@item.Url()">@Html.Sitecore().Field(Templates.NewsArticle.Fields.Title, item)</a>
+                    </h4>
+                </div>
+            </li>
+        }
+    </ul>
+    <a href="@Html.Sitecore().CurrentRendering.Item.Url()" class="btn btn-default">
+        Read more...
+    </a>
+</div>

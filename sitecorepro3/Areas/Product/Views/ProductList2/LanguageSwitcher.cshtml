@@ -1,0 +1,27 @@
+﻿@model RenderingModel
+@{
+    ViewBag.Title = "LanguageSwitcher";
+}
+
+<h2>LanguageSwitcher</h2>
+
+<div class="language-switcher">
+    <ul>
+        <li><a href="?sc_lang=en">English</a></li>
+        <li><a href="?sc_lang=zh-cn">China</a></li>
+        <li><a href="?sc_lang=vi-vn">Vietnam</a></li>
+    </ul>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var links = document.querySelectorAll('.language-switcher a');
+
+        for (var i = 0; i < links.length; i++) {
+            links[i].addEventListener('click', function (e) {
+                e.preventDefault();
+                var lang = this.getAttribute('href');
+                window.location.href = window.location.pathname + lang;
+            });
+        }
+    });
+</script>

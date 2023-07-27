@@ -1,0 +1,40 @@
+﻿@using System.Web.Mvc
+@using System.Web.Mvc.Html
+@model sitecorepro3.Feature.MainContent.Models.ForgotAccount
+<div>
+    <div id="loginBoxHomeTop">
+
+        <h2> Forgot account</h2>
+        <div class="InputLogin">
+            <!--Login Input-->
+
+
+            @using (Html.BeginForm("ForgotAccount", "MainContent", FormMethod.Post))
+            {
+                <fieldset>
+                    <legend>
+                        Search
+                    </legend>
+                    <div class="SelectInput">
+                        @Html.TextBoxFor(m => m.Email, new { value = "Email", @class = "InputHome LightScheme" })
+                    </div>
+                    <br />
+                </fieldset>
+                <div class="LoginBoxHomeHidden PaddingHiddenHome">
+                    <div class="LoginButtonLeft">
+                        <div class="LoginButtonRight">
+                            <!--<input type="submit" value="connectez-vous" class="CommonFormBtn LoginButton" />-->
+                            <input type="submit" value="Send Email" class="CommonFormBtn LoginButton" />
+                        </div>
+                    </div>
+                    <div class="Clr"></div>
+                    <label>
+                        @TempData["error"]
+                    </label>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div id="loginBoxHomeBottom"></div>
+</div>

@@ -1,0 +1,16 @@
+﻿@model sitecorepro2.Areas.Product.Models.ProductListVM
+@{
+    ViewBag.Title = "ProductList2";
+}
+
+<h2>ProductList2</h2>
+<div class="list-product">
+    @foreach (var item in Model.ProductList)
+    {
+        <h3>@item.Name</h3>
+        <p>@item.Description</p>
+        <p>@item.Price</p>
+        <p>@item.Quantity</p>
+    }
+</div>
+

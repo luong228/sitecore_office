@@ -1,0 +1,28 @@
+﻿@using System.Web.Mvc
+@using System.Web.Mvc.Html
+@using Sitecore.Mvc
+@model sitecorepro3.Feature.Sitemap.Models.UrlSet
+
+<h2>sitemap</h2>
+<p>
+    &lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+</p>
+<div>
+    &lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"&gt;
+
+</div>
+<div>
+
+    @foreach (var url in Model.Url)
+    {
+        <div>
+
+            &gturl&gt
+            <p>&lt;loc&gt @url.Loc&lt;/loc&gt </p>
+            <p>&lt;lastmod&gt @url.Lastmod &lt;/lastmod&gt </p>
+            &gt/url&gt
+        </div>
+
+
+}
+</div>

@@ -1,0 +1,19 @@
+﻿@model sitecorepro3.Feature.BasicContent.Models.Weather
+@{var uri = new Uri(Request.Url.AbsoluteUri);
+    string url = uri.Scheme + "://" + uri.Authority;
+
+}
+<div class="BlockFunction">
+    <div class="BlockFunctionColumnBalance">
+        <div class="ContentBox1">
+            <div class="Box1Text">
+                <h3 class="TitleH2 BoxTitle TitleColor"> Weather API Information</h3>
+                <div class="BoxText">
+                    @Model.WeatherInfo
+                </div>
+            </div>
+            <div class="Clr"></div>
+        </div>
+
+    </div>
+</div>

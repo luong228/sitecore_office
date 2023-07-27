@@ -1,0 +1,22 @@
+﻿@using Sitecore.Mvc.Extensions
+@using Sitecore.Mvc.Presentation
+@model RenderingModel
+
+@{
+    Layout = null;
+}
+
+<div>
+    <form method="post" action="@Url.Action("Search", "ProductSearch")">
+        <label for="searchString">Search:</label>
+        <input type="text" id="searchString" name="searchString" />
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+@if (IsPost && !string.IsNullOrEmpty(Request.Form["searchString"]))
+{
+    var searchString = Request.Form["searchString"];
+    var searchResults = Html.Sitecore().Controller("ProductSearch", "Search");
+    @*@Html.RenderPartial("../ProductSearch/SearchResults", searchResults);*@
+}

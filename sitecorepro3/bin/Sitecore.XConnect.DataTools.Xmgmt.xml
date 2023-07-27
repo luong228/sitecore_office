@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sitecore.XConnect.DataTools.Xmgmt</name>
+    </assembly>
+    <members>
+        <member name="T:Sitecore.XConnect.DataTools.Xmgmt.DataToolsServiceConfigurator">
+            <summary>
+            Configures Data purge tool WebAPI controllers and all their dependencies.
+            </summary>
+        </member>
+        <member name="T:Sitecore.XConnect.DataTools.Xmgmt.EstimateController">
+            <summary>
+            xConnect Data Tools Web API, which exposes endpoints to get estimates for certain kind of entities.
+            </summary>
+        </member>
+        <member name="M:Sitecore.XConnect.DataTools.Xmgmt.EstimateController.#ctor(Sitecore.XConnect.DataTools.Xmgmt.Providers.IEntityEstimateProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.XConnect.DataTools.Xmgmt.EstimateController"/> class.
+            </summary>
+            <param name="entityEstimateProvider">The provider used to get estimates.</param>
+        </member>
+        <member name="M:Sitecore.XConnect.DataTools.Xmgmt.EstimateController.EstimateContactsAsync(Sitecore.XConnect.DataTools.Xmgmt.Models.EstimateContactsCriteria)">
+            <summary>
+            Estimates contacts base on the provided criteria.
+            </summary>
+            <param name="estimateCriteria">The criteria used to estimate contacts.</param>
+            <returns><see cref="T:Sitecore.XConnect.DataTools.Xmgmt.Providers.EstimateContactsResponse"/></returns>
+        </member>
+        <member name="M:Sitecore.XConnect.DataTools.Xmgmt.EstimateController.EstimateInteractionsAsync(Sitecore.XConnect.DataTools.Xmgmt.Models.EstimateInteractionsCriteria)">
+            <summary>
+            Estimates interactions based on the provided criteria.
+            </summary>
+            <param name="estimateCriteria">The criteria used to estimate interactions.</param>
+            <returns><see cref="T:Sitecore.XConnect.DataTools.Xmgmt.Providers.EstimateInteractionsResponse"/></returns>
+        </member>
+        <member name="T:Sitecore.XConnect.DataTools.Xmgmt.Filters.DataToolsExceptionFilterAttribute">
+            <summary>
+            Attribute that is used to handle data tools exceptions.
+            </summary>
+        </member>
+        <member name="M:Sitecore.XConnect.DataTools.Xmgmt.Filters.DataToolsExceptionFilterAttribute.OnException(System.Web.Http.Filters.HttpActionExecutedContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.XConnect.DataTools.Xmgmt.Models.EstimateBySamplingCriteria">
+            <summary>
+            Defines abstract criteria used to estimate entities by sampling options.
+            </summary>
+        </member>
+        <member name="P:Sitecore.XConnect.DataTools.Xmgmt.Models.EstimateBySamplingCriteria.StartPercentile">
+            <summary>
+            Gets or sets the start percentile.
+            </summary>
+        </member>
+        <member name="P:Sitecore.XConnect.DataTools.Xmgmt.Models.EstimateBySamplingCriteria.EndPercentile">
+            <summary>
+            Gets or sets the end percentile.
+            </summary>
+        </member>
+        <member name="M:Sitecore.XConnect.DataTools.Xmgmt.Models.EstimateBySamplingCriteria.Validate(System.ComponentModel.DataAnnotations.ValidationContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.XConnect.DataTools.Xmgmt.Models.EstimateContactsCriteria">
+            <summary>
+            Criteria that is used to estimate contacts.
+            </summary>
+        </member>
+        <member name="P:Sitecore.XConnect.DataTools.Xmgmt.Models.EstimateContactsCriteria.CutoffDays">
+            <summary>
+            Gets or sets the cutoff days.
+            </summary>
+        </member>
+        <member name="T:Sitecore.XConnect.DataTools.Xmgmt.Models.EstimateInteractionsCriteria">
+            <summary>
+            Criteria that is used to estimate interactions.
+            </summary>
+        </member>
+        <member name="P:Sitecore.XConnect.DataTools.Xmgmt.Models.EstimateInteractionsCriteria.StartedDaysCutoff">
+            <summary>
+            Gets or sets the number of days passed after interaction was started.
+            </summary>
+        </member>
+        <member name="M:Sitecore.XConnect.DataTools.Xmgmt.Providers.DataExtractionEstimateProvider.EstimateContactsAsync(Sitecore.XConnect.DataTools.Xmgmt.Providers.EstimateContactsRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.XConnect.DataTools.Xmgmt.Providers.DataExtractionEstimateProvider.EstimateInteractionsAsync(Sitecore.XConnect.DataTools.Xmgmt.Providers.EstimateInteractionsRequest)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.XConnect.DataTools.Xmgmt.Providers.EstimateContactsRequest">
+            <summary>
+            Represents a request to estimate contacts.
+            </summary>
+        </member>
+        <member name="M:Sitecore.XConnect.DataTools.Xmgmt.Providers.EstimateContactsRequest.#ctor(System.DateTime,Sitecore.XConnect.SamplingOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.XConnect.DataTools.Xmgmt.Providers.EstimateContactsRequest"/> class.
+            </summary>
+            <param name="cutoffDateTime">The upper bound date time to filter contacts by the last date time they have interacted with the brand.</param>
+            <param name="samplingOptions">Optional. The sampling options to filter contacts by.</param>
+        </member>
+        <member name="P:Sitecore.XConnect.DataTools.Xmgmt.Providers.EstimateContactsRequest.CutoffDateTime">
+            <summary>
+            Gets the upper bound date time to filter contacts by the last date time they have interacted with the brand.
+            </summary>
+        </member>
+        <member name="P:Sitecore.XConnect.DataTools.Xmgmt.Providers.EstimateContactsRequest.SamplingOptions">
+            <summary>
+            Gets the sampling options to filter contacts by.
+            </summary>
+        </member>
+        <member name="T:Sitecore.XConnect.DataTools.Xmgmt.Providers.EstimateContactsResponse">
+            <summary>
+            Represents a response to the estimate contacts request.
+            </summary>
+        </member>
+        <member name="M:Sitecore.XConnect.DataTools.Xmgmt.Providers.EstimateContactsResponse.#ctor(System.Int64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.XConnect.DataTools.Xmgmt.Providers.EstimateContactsResponse"/> class.
+            </summary>
+            <param name="totalCount">The total count of contacts.</param>
+        </member>
+        <member name="P:Sitecore.XConnect.DataTools.Xmgmt.Providers.EstimateContactsResponse.TotalCount">
+            <summary>
+            Gets the total count of contacts.
+            </summary>
+        </member>
+        <member name="T:Sitecore.XConnect.DataTools.Xmgmt.Providers.EstimateInteractionsRequest">
+            <summary>
+            Represents a request to estimate interactions.
+            </summary>
+        </member>
+        <member name="M:Sitecore.XConnect.DataTools.Xmgmt.Providers.EstimateInteractionsRequest.#ctor(System.DateTime,Sitecore.XConnect.SamplingOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.XConnect.DataTools.Xmgmt.Providers.EstimateInteractionsRequest"/> class.
+            </summary>
+            <param name="maxStartDateTime">The upper bound date time to filter interactions by the start date time.</param>
+            <param name="samplingOptions">Optional. The sampling options to filter interactions by.</param>
+        </member>
+        <member name="P:Sitecore.XConnect.DataTools.Xmgmt.Providers.EstimateInteractionsRequest.MaxStartDateTime">
+            <summary>
+            Gets the upper bound date time to filter interactions by the start date time.
+            </summary>
+        </member>
+        <member name="P:Sitecore.XConnect.DataTools.Xmgmt.Providers.EstimateInteractionsRequest.SamplingOptions">
+            <summary>
+            Gets the sampling options to filter interactions by.
+            </summary>
+        </member>
+        <member name="T:Sitecore.XConnect.DataTools.Xmgmt.Providers.EstimateInteractionsResponse">
+            <summary>
+            Represents a response to the estimate interactions request.
+            </summary>
+        </member>
+        <member name="M:Sitecore.XConnect.DataTools.Xmgmt.Providers.EstimateInteractionsResponse.#ctor(System.Int64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.XConnect.DataTools.Xmgmt.Providers.EstimateInteractionsResponse"/> class.
+            </summary>
+            <param name="totalCount">The total count of interactions.</param>
+        </member>
+        <member name="P:Sitecore.XConnect.DataTools.Xmgmt.Providers.EstimateInteractionsResponse.TotalCount">
+            <summary>
+            Gets the total count of interactions.
+            </summary>
+        </member>
+        <member name="T:Sitecore.XConnect.DataTools.Xmgmt.Providers.IEntityEstimateProvider">
+            <summary>
+            Defines the provider, which provides estimates for entities.
+            </summary>
+        </member>
+        <member name="M:Sitecore.XConnect.DataTools.Xmgmt.Providers.IEntityEstimateProvider.EstimateContactsAsync(Sitecore.XConnect.DataTools.Xmgmt.Providers.EstimateContactsRequest)">
+            <summary>
+            Provides an estimate for the contacts based on the specific data.
+            </summary>
+            <param name="request">The request, which contain the data to estimate the contacts based on.</param>
+            <returns><see cref="T:Sitecore.XConnect.DataTools.Xmgmt.Providers.EstimateContactsResponse"/> with the result of the estimation.</returns>
+        </member>
+        <member name="M:Sitecore.XConnect.DataTools.Xmgmt.Providers.IEntityEstimateProvider.EstimateInteractionsAsync(Sitecore.XConnect.DataTools.Xmgmt.Providers.EstimateInteractionsRequest)">
+            <summary>
+            Provides an estimate for the interactions based on the specific data.
+            </summary>
+            <param name="request">The request, which contain the data to estimate the interactions based on.</param>
+            <returns><see cref="T:Sitecore.XConnect.DataTools.Xmgmt.Providers.EstimateInteractionsResponse"/> with the result of the estimation.</returns>
+        </member>
+    </members>
+</doc>

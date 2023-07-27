@@ -1,0 +1,144 @@
+﻿@model sitecorepro3.Feature.Transaction.Models.TransactionResultItemList
+
+@{var uri = new Uri(Request.Url.AbsoluteUri);
+    string url = uri.Scheme + "://" + uri.Authority;
+    var language = Sitecore.Context.Language;
+
+}
+<form>
+
+
+    <div id="mainContent">
+
+        <table class="FormItem LightScheme Keyword SearchBox01 SearchBox01Transsearch ">
+            <tr>
+                <td><label for="email">Mot- clé</label></td>
+                <td colspan="2">
+                    <div class="TextInputWrapper01 TextInputSize01">
+                        <div class="TextInputWrapper02">
+                            <input type="text" name="query" id="query" class="TextInput LightScheme" />
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><label class="LightScheme ">Mot-clé </label></td>
+                <td>
+                    <div class="FormItemSpacing02">
+                        <div class="ui-widget ui-widget-wrapper">
+                            <select class="combobox" name="" id="combobox">
+                                <option value="1" class="First" selected="selected">All residence</option>
+                                @{
+                                    var indexType = 1;
+                                }
+                                @foreach (var type in Model.TypeList)
+                                {
+                                    indexType++;
+                                    <option value="@indexType">@type.Name</option>
+                                }
+
+                            </select>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="FormButtonWrapper01 MarginSearchButton">
+                        <div class="FormButtonWrapper02">
+
+                            <button class="CommonFormBtn" type="submit" title="Search" value="Rechercher">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="BlockPageNavigation BlockPageNavigationSpacing01">
+            <a href="#" title="Prev" class="BackBtn BackBtnSmall"><span>Prev</span></a>
+            <div class="CenteringBlock">
+                <ul class="PagingIndex">
+                    <li>
+                        <a href="#" title="">1</a>
+                    </li>
+                    <li>
+                        <span>2</span>
+                    </li>
+                    <li>
+                        <a href="#" title="">3</a>
+                    </li>
+                    <li>
+                        <a href="#" title="">4</a>
+                    </li>
+                    <li>
+                        <a href="#" title="">5</a>
+                    </li>
+                    <li>
+                        <a href="#" title="">...</a>
+                    </li>
+                </ul>
+            </div>
+            <a href="#" title="Next" class="NextBtn NextBtnSmall"><span>Next</span></a>
+        </div>
+        <div class="HrReplacement HrStyle02">
+            <hr class="Hidden" />
+        </div>
+        <div class="ResultsSet">
+            <ul class="ResultsList">
+                @foreach (var tran in Model.TransactionList)
+                {
+
+
+                    <li>
+                        <div class="BlockPhoto01">
+                            <span class="TopRoundedDecoration">&nbsp;</span>
+                            <a href="@url/@tran.FullPath" title="View details"><img src="@url/images/search-result-img-01.jpg" title="" alt="" /></a>
+                            <span class="ShareThisHandle ShareBtn01"><a href="#" title="Share">Share</a></span>
+                        </div>
+                        <p class="ShareTranssearch">
+                            <a href="@url/@tran.FullPath" class="LightScheme">@tran.Title </a>
+                        </p>
+                        <p class="BlockSearchItemInfo01 LightScheme">
+                            <span>Posted by : Admin</span>
+                            <br />
+                            <br />
+                            Studio- Brussels
+                            <br />
+                            @tran.NumberOfBedroom bedroom - @tran.NumberOfBathRoom bathroom
+                            <br />
+                            <strong class="DarkScheme">@tran.Price &euro;</strong>
+                        </p>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="HrReplacement HrStyle01">
+            <hr class="Hidden" />
+        </div>
+        <div class="BlockPageNavigation2 BlockPageNavigationMirror BlockPageNavigationMirrorSpacing01">
+            <a href="#" title="Prev" class="BackBtn BackBtnSmall"><span>Prev</span></a>
+            <div class="CenteringBlock">
+                <ul class="PagingIndex">
+                    <li>
+                        <a href="#" title="">1</a>
+                    </li>
+                    <li>
+                        <span>2</span>
+                    </li>
+                    <li>
+                        <a href="#" title="">3</a>
+                    </li>
+                    <li>
+                        <a href="#" title="">4</a>
+                    </li>
+                    <li>
+                        <a href="#" title="">5</a>
+                    </li>
+                    <li>
+                        <a href="#" title="">...</a>
+                    </li>
+                </ul>
+            </div>
+            <a href="#" title="Next" class="NextBtn NextBtnSmall"><span>Next</span></a>
+        </div>
+    </div>
+</form>

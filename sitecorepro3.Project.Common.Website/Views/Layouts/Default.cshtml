@@ -1,0 +1,100 @@
+﻿@using sitecorepro3.Foundation.Assets
+@using sitecorepro3.Foundation.Assets.Models
+@using sitecorepro3.Foundation.Assets.Services
+@using sitecorepro3.Foundation.SitecoreExtensions.Extensions
+@using Sitecore.Mvc
+@using Sitecore.Mvc.Analytics.Extensions
+
+@{
+    var uri = new Uri(Request.Url.AbsoluteUri);
+    string url = uri.Scheme + "://" + uri.Authority;
+}
+<!DOCTYPE html>
+<!--[if IE 9]><html lang="en" class="ie9 no-js"><![endif]-->
+<!--[if !IE]><!-->
+<html lang="@Sitecore.Context.Language.CultureInfo.TwoLetterISOLanguageName">
+<!--<![endif]-->
+<head>
+    <title>Building Bell</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="Robots" content="noindex, nofollow" />
+    <meta name="Author" content="Pyramid Consulting Vietnam" />
+    <meta name="Keywords" content="" />
+    <meta name="Description" content="" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <link rel="stylesheet" href="@url/css/global.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="@url/css/master.css" type="text/css" media="all" />
+    <link rel="stylesheet" type="text/css" href="@url/css/smaller.css" media="only screen and (max-width: 1080px)" />
+
+    <!--combobox-->
+    <link type="text/css" href="@url/css/combobox/jquery.jscrollpane.css" rel="stylesheet" media="all" />
+    <link type="text/css" rel="stylesheet" href="@url/css/combobox/combobox.css" media="all" />
+    <link type="text/css" rel="stylesheet" href="@url/css/combobox/combobox-theme.css" media="all" />
+    <link rel="stylesheet" href="@url/css/combobox/jquery-ui-home.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="@url/css/combobox/jquery-ui.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="@url/css/combobox/ui.theme.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="@url/css/j-carousel.css" type="text/css" />
+    <link rel="stylesheet" href="@url/css/j-scrollpane.css" type="text/css" />
+    <link rel="stylesheet" href="@url/css/j-scrollpane-theme.css" type="text/css" />
+    <link rel="stylesheet" href="@url/css/j-select.css" type="text/css" />
+    <link rel="stylesheet" href="@url/css/j-select-theme-home.css" type="text/css" />
+    <!--combobox-->
+    <!--pop-up-->
+    <link href="@url/css/demo_popup.css" rel="stylesheet" type="text/css" />
+
+    @if (!Sitecore.Context.PageMode.IsExperienceEditor)
+    {
+        @Html.Sitecore().Placeholder("head")
+    }
+    <!-- Latest compiled and minified JavaScript -->
+    @RenderAssetsService.Current.RenderScript(ScriptLocation.Head)
+    @RenderAssetsService.Current.RenderStyles()
+    @Html.Sitecore().VisitorIdentification()
+</head>
+<body class="BlueTheme">
+    <div id="outer">
+        <header>
+            @Html.Sitecore().Placeholder("header")
+        </header>
+        <div id="main-content">
+            @Html.Sitecore().Placeholder("page-layout")
+        </div>
+        <footer>
+            @Html.Sitecore().Placeholder("footer")
+        </footer>
+
+        @Html.Sitecore().Placeholder("page-sidebar")
+    </div>
+    @Html.Sitecore().Placeholder("popup")
+    @RenderAssetsService.Current.RenderScript(ScriptLocation.Body)
+    <script type="text/javascript" src="@url/js/jquery-core.js"></script>
+    <script type="text/javascript" src="@url/js/jquery-ui-core.js"></script>
+    <script type="text/javascript" src="@url/js/jquery.mediaqueries.js"></script>
+    
+    <!--Pop-up-->
+    <script src="@url/js/script.js" type="text/javascript"></script>
+    <!--End Pop-up-->
+    <script type="text/javascript" src="@url/js/j-mousewheel.js"></script>
+    <script type="text/javascript" src="@url/js/j-scrollpane.js"></script>
+    <script type="text/javascript" src="@url/js/j-select.js"></script>
+    <script type="text/javascript" src="@url/js/j-select.external.js"></script>
+
+
+    <script src="@url/js/combobox/jquery.ui.widget.js" type="text/javascript"></script>
+    <script src="@url/js/combobox/jquery.ui.button.js" type="text/javascript"></script>
+    <script src="@url/js/combobox/jquery.ui.position.js" type="text/javascript"></script>
+    <script src="@url/js/combobox/jquery.ui.autocomplete.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="@url/js/combobox/jquery.jscrollpane.js"></script>
+    <script type="text/javascript" src="@url/js/combobox/j-mousewheel.js"></script>
+<script type="text/javascript" src="@url/js/j-carousel.js"></script>
+<script type="text/javascript" src="@url/js/common.js"></script>
+
+
+</body>
+</html>

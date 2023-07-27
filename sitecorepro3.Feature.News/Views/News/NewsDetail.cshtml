@@ -1,0 +1,45 @@
+﻿@model sitecorepro3.Feature.News.Models.NewsVM
+@using Sitecore.Mvc
+@using sitecorepro3.Foundation.SitecoreExtensions.Extensions
+
+<div id="mainContent" style="margin-bottom: 200px;">
+    <div class="BlockPageNavigation BlockPageNavigationAlt04 TitleLeft MarginButtonNews">
+        <a href="#" title="Back to list" class="BackBtn"><span class="ColorBackBtn">Back to list</span></a>
+    </div>
+    <div class="FormButtonWrapper01 SubmitButton MarginButtonNews">
+        <div class="FormButtonWrapper02 SubmitNews">
+            <a href="" class="CommonFormBtn SubmitNews">SUBMIT TO NEWSLETTER</a>
+        </div>
+    </div>
+    <div class="Clr">
+    </div>
+    <div class="HrReplacement HrStyle01"><hr class="Hidden" /></div>
+    <!-----Change----------->
+    <h2 class="PageHeading DarkScheme  MarginNews">News</h2>
+    <!-----Change----------->
+    <div class="BlockArticle">
+        <div class="BlockSideContent">
+            @*<img src="images/article-img-01.jpg" title="Article image" alt="Article image" />*@
+            @Html.Sitecore().ImageField(sitecorepro3.Feature.News.Templates.NewsArticle.Fields.Image, @Model.Item, mw: 150)
+        </div>
+
+        <div class="BlockMainArticle">
+            <p class="ArticleDate LightScheme">
+
+                @Html.Sitecore().Field(sitecorepro3.Feature.News.Templates.NewsArticle.Fields.Date.ToString(), @Model.Item, new
+                                    {
+                                        format = "MMMM dd, yyyy"
+                                    })
+            </p>
+            <h3 class="ArticleTitle DarkScheme">
+                @Html.Sitecore().Field(sitecorepro3.Feature.News.Templates.NewsArticle.Fields.Title, @Model.Item)
+            </h3>
+
+            <p class="ShareNews"> <a href="">share</a> </p>
+
+            <p class="CommonParagraph1  LightScheme">
+                @Html.Sitecore().Field(sitecorepro3.Feature.News.Templates.NewsArticle.Fields.Body, @Model.Item)
+            </p>
+        </div>
+    </div>
+</div>

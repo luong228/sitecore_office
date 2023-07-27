@@ -1,0 +1,42 @@
+﻿@{var uri = new Uri(Request.Url.AbsoluteUri);
+    string url = uri.Scheme + "://" + uri.Authority;
+    var language = Sitecore.Context.Language;
+}
+<div id="headerHome">
+    <div id="navigationBlockHome">
+        <ul id="mainNav">
+            <li class="Active">
+                <a href="@url/@language/office/" title="Home">Home</a>
+            </li>
+            <li>
+                <a href="@url/@language/office/Transactions" title="Transactions">Transactions</a>
+            </li>
+            <li>
+                <a href="@url/@language/office/News" title="News">News</a>
+            </li>
+            <li>
+                <a href="@url/@language/office/Contact" title="Contact">Contact</a>
+            </li>
+            <li>
+                <a href="@url/@language/office/Register" title="Register">Register</a>
+            </li>
+            <li>
+                <a href="@url/@language/office/Logout" title="Logout">Logout</a>
+            </li>
+        </ul>
+        <div class="Clr"></div>
+    </div>
+    <div class="Clr"></div>
+    <!--banner main of page, click Button will open popup window-->
+    <div class="Banner">
+        <div class="Logo">
+            <img src="@url/images/logo-home.png" alt="Building Bell Logo" />
+        </div>
+        <div class="ButtonHome">
+            <a href="#" id="button"> <img src="@url/images/button-home.png" alt="Building Bell Logo" title="Building Bell Logo" /></a>
+        </div>
+        <div class="MapHome">
+            <img src="@url/images/map-home.png" alt="Building Bell Logo" />
+        </div>
+    </div>
+</div>

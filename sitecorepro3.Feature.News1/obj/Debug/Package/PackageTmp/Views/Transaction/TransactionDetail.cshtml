@@ -1,0 +1,209 @@
+﻿@model sitecorepro3.Feature.Transaction.Models.TransactionVM
+@{var uri = new Uri(Request.Url.AbsoluteUri);
+    string url = uri.Scheme + "://" + uri.Authority;
+
+}
+<div id="mainContent">
+    <!--Images Slide -->
+    <div class="BackButton">
+        <a href="@url/office/transactions" title="Back to list" class="BackBtn "><span class="ColorBackBtn">Back to list</span></a>
+    </div>
+    <div class="BlockPageNavigation NavigationButton PaddingTransSearch">
+        <a href="#" title="Prev" class="BackBtn BackBtnSmall"><span>Prev</span></a>
+        <div class="CenteringBlock">
+            <ul class="PagingIndex">
+                <li>
+                    <a href="#" title="">1</a>
+                </li>
+                <li>
+                    <span>2</span>
+                </li>
+                <li>
+                    <a href="#" title="">3</a>
+                </li>
+                <li>
+                    <a href="#" title="">4</a>
+                </li>
+                <li>
+                    <a href="#" title="">5</a>
+                </li>
+                <li>
+                    <a href="#" title="">...</a>
+                </li>
+            </ul>
+        </div>
+        <a href="#" title="Next" class="NextBtn NextBtnSmall"><span>Next</span></a>
+    </div>
+    <div class="HrReplacement HrStyle05 LineNavigation1">
+        <hr class="Hidden" />
+    </div>
+    <div class="ShowImageInfor">
+        <!--add a tag to zoom image-->
+        <a href="@url/images/sample-carousel-img-view-zoom.jpg" title="" class="ShowCaseZoom"><img src="@url/images/sample-carousel-img-view.jpg" title="" alt="" class="ShowcaseImg ShowcaseImgMargin " /></a>
+        <!--add a tag to zoom image-->
+        <div class=" BlockSearchItemInfo01Alt01 BlockSearchItemInfo01 LightScheme WidthTrans">
+            <span>Posted by : Admin</span>
+            <br />
+            <br />
+
+            <br />
+
+            <br />
+            floor area
+            <br />
+            <strong class="DarkScheme ShowItem Price">@Model.Price &euro;</strong>
+            <div class="FontDetail">
+               @Model.Title
+            </div>
+            <p class="LightScheme"> @Model.Title </p>
+            <p class="SummaryTranssearch">
+                @Model.Description
+            </p>
+            <div class="ShareThisHandle ShareBtn02 ShareFix"><a href="#" title="Share">Share</a></div>
+
+
+        </div>
+        <!-----------New - 18/04-------------->
+    </div>
+    <div class="Clr"></div>
+    <!--Slide Image-->
+    <div class="CarouselUIContainer">
+        <ul id="transList" class="CarouselUI jcarousel-skin-buildingbell">
+            <li class="Active">
+                <!--Zoom img-->
+                <a href="@url/images/sample-carousel-img-view-zoom.jpg" title="View details" class="ShowCase" rel="images/sample-carousel-img-view.jpg">
+                    <!--Zoom img-->
+                    <span> <img src="@url/images/carousel-img-01.jpg" alt="" /></span>
+                </a>
+            </li>
+            <li>
+                <a href="@url/images/lakewood-zoom.jpg" title="View details" class="ShowCase" rel="images/lakewood.jpg"><span> <img src="@url/images/carousel-img-02.jpg" alt="" /></span></a>
+            </li>
+            <li>
+                <a href="@url/images/sample-carousel-img-view-zoom.jpg" title="View details" class="ShowCase" rel="images/sample-carousel-img-view.jpg"> <span> <img src="@url/images/carousel-img-03.jpg" alt="" /></span></a>
+            </li>
+            <li>
+                <a href="@url/images/lakewood-zoom.jpg" title="View details" class="ShowCase" rel="images/lakewood.jpg"><span> <img src="@url/images/carousel-img-04.jpg" alt="" /></span></a>
+            </li>
+            <li>
+                <a href="@url/images/sample-carousel-img-view-zoom.jpg" title="View details" class="ShowCase" rel="images/sample-carousel-img-view.jpg"> <span> <img src="@url/images/carousel-img-05.jpg" alt="" /></span></a>
+            </li>
+            <li>
+                <a href="@url/images/sample-carousel-img-view-zoom.jpg" title="View details" class="ShowCase" rel="images/lakewood.jpg"><span> <img src="@url/images/carousel-img-02.jpg" alt="" /></span></a>
+            </li>
+            <li>
+                <a href="@url/images/sample-carousel-img-view-zoom.jpg" title="View details" class="ShowCase" rel="images/sample-carousel-img-view.jpg"> <span> <img src="@url/images/carousel-img-03.jpg" alt="" /></span></a>
+            </li>
+            <li>
+                <a href="@url/images/lakewood-zoom.jpg" title="View details" class="ShowCase" rel="images/lakewood.jpg"><span> <img src="@url/images/carousel-img-04.jpg" alt="" /></span></a>
+            </li>
+            <li>
+                <a href="@url/images/sample-carousel-img-view-zoom.jpg" title="View details" class="ShowCase" rel="images/sample-carousel-img-view.jpg"> <span> <img src="@url/images/carousel-img-05.jpg" alt="" /></span></a>
+            </li>
+            <li>
+                <a href="@url/images/sample-carousel-img-view-zoom.jpg" title="View details" class="ShowCase" rel="images/sample-carousel-img-view.jpg"> <span> <img src="@url/images/carousel-img-01.jpg" alt="" /></span></a>
+            </li>
+            <li>
+                <a href="@url/images/sample-carousel-img-view-zoom.jpg" title="View details" class="ShowCase" rel="images/lakewood.jpg"><span> <img src="@url/images/carousel-img-02.jpg" alt="" /></span></a>
+            </li>
+            <li>
+                <a href="@url/images/lakewood-zoom.jpg" title="View details" class="ShowCase" rel="images/sample-carousel-img-view.jpg"> <span> <img src="@url/images/carousel-img-03.jpg" alt="" /></span></a>
+            </li>
+            <li>
+                <a href="@url/images/lakewood-zoom.jpg" title="View details" class="ShowCase" rel="images/lakewood.jpg"><span> <img src="@url/images/carousel-img-04.jpg" alt="" /></span></a>
+            </li>
+            <li>
+                <a href="@url/images/sample-carousel-img-view-zoom.jpg" title="View details" class="ShowCase" rel="images/sample-carousel-img-view.jpg"> <span> <img src="@url/images/carousel-img-05.jpg" alt="" /></span></a>
+            </li>
+            <li>
+                <a href="@url/images/lakewood-zoom.jpg" title="View details" class="ShowCase" rel="images/lakewood.jpg"><span> <img src="@url/images/carousel-img-02.jpg" alt="" /></span></a>
+            </li>
+            <li>
+                <a href="@url/images/sample-carousel-img-view-zoom.jpg" title="View details" class="ShowCase" rel="images/sample-carousel-img-view.jpg"> <span> <img src="@url/images/carousel-img-03.jpg" alt="" /></span></a>
+            </li>
+            <li>
+                <a href="@url/images/lakewood-zoom.jpg" title="View details" class="ShowCase" rel="images/lakewood.jpg"><span> <img src="@url/images/carousel-img-04.jpg" alt="" /></span></a>
+            </li>
+            <li>
+                <a href="#" title="View details" class="ShowCase" rel="images/sample-carousel-img-view.jpg"> <span> <img src="@url/images/carousel-img-05.jpg" alt="" /></span></a>
+            </li>
+        </ul>
+    </div>
+    <div class="BlockDetailsInfo">
+        <div class="MultiColumn01 Colum1">
+            <p>
+                <span>Category</span>@Model.Type
+            </p>
+            <p>
+                <span>Type</span>@Model.Type
+            </p>
+            <p>
+                <span>Country</span>@Model.Country
+            </p>
+            <p>
+                <span>State</span>@Model.State
+            </p>
+            <p>
+                <span>PostCode / City</span>@Model.PostCode / @Model.City
+            </p>
+            <p>
+                <span>Year of construction</span>@Model.YearOfConstruction
+            </p>
+            <p>
+                <span>Number of floors</span>@Model.NumberOfFloors
+            </p>
+        </div>
+        <div class="MultiColumn01 Colum2">
+            <p>
+                <span>Floor of property</span>@Model.NumberOfProperty
+            </p>
+            <p>
+                <span>Area</span>@Model.Area
+            </p>
+            <p>
+                <span>Number of bedrooms</span>@Model.NumberOfBedroom
+            </p>
+            <p>
+                <span>Number of bathrooms</span>@Model.NumberOfBedroom
+            </p>
+            <p>
+                <span>Number of parkings / City</span>@Model.NumberOfParking
+            </p>
+            <p>
+                <span>CellarNo</span>No @Model.CellarNo
+            </p>
+            <p>
+                <span>Property condition</span>@Model.PropertyCondition
+            </p>
+        </div>
+    </div>
+    <div class="HrReplacement HrStyle06">
+        <hr class="Hidden" />
+    </div>
+    <div class="BlockPageNavigation NavigationButton1 BlockPageNavigationAlt02Mirror">
+        <a href="#" title="Prev" class="BackBtn BackBtnSmall"><span>Prev</span></a>
+        <div class="CenteringBlock">
+            <ul class="PagingIndex">
+                <li>
+                    <a href="#" title="">1</a>
+                </li>
+                <li>
+                    <span>2</span>
+                </li>
+                <li>
+                    <a href="#" title="">3</a>
+                </li>
+                <li>
+                    <a href="#" title="">4</a>
+                </li>
+                <li>
+                    <a href="#" title="">5</a>
+                </li>
+                <li>
+                    <a href="#" title="">...</a>
+                </li>
+            </ul>
+        </div>
+        <a href="#" title="Next" class="NextBtn NextBtnSmall"><span>Next</span></a>
+    </div>
+</div>
